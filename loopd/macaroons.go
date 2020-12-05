@@ -144,7 +144,7 @@ func (d *Daemon) startMacaroonService() error {
 	// Create the macaroon authentication/authorization service.
 	var err error
 	d.macaroonService, err = macaroons.NewService(
-		d.cfg.DataDir, loopMacaroonLocation, macaroons.IPLockChecker,
+		d.cfg.DataDir, loopMacaroonLocation, false, macaroons.IPLockChecker,
 	)
 	if err != nil {
 		return fmt.Errorf("unable to set up macaroon authentication: "+
